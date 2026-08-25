@@ -1,16 +1,14 @@
-# Rubix
+# CubeDesk
 
-## Visual screenshot
+A dependency-free, browser-only Rubik's Cube simulator. Open `index.html` directly or run:
 
-Run the visual test to start the static site on port 4173 and capture a desktop
-screenshot of `index.html` at `artifacts/cubedesk.png`:
-
-```sh
-npm run test:visual
+```bash
+npm start
 ```
 
-The browser binary can be installed with:
+## Controls
 
-```sh
-npx playwright install chromium
-```
+- Drag the cube to orbit the camera.
+- Click a face control, or press `U`, `R`, `F`, `D`, `L`, or `B`; hold Shift for an inverse turn.
+- Enter an algorithm such as `R U R' U'`, then press play.
+- Press Space to scramble and Z to undo.
