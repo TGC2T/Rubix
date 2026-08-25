@@ -3,12 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rubix</title>
+    <title>CubeDesk — Rubik's Cube Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main>
-      <h1>Rubix</h1>
-      <p>A static site ready for visual testing.</p>
+    <main class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="CubeDesk home"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>cube<span>desk</span></span></a>
+        <div class="header-actions"><button class="icon-button" id="soundBtn" aria-label="Toggle sound">⌁</button><button class="icon-button" id="helpBtn" aria-label="Keyboard shortcuts">?</button></div>
+      </header>
+
+      <section class="workspace">
+        <aside class="left-panel panel">
+          <div class="eyebrow">SESSION</div>
+          <div class="stat-row"><span>Moves</span><strong id="moveCount">000</strong></div>
+          <div class="stat-row"><span>Time</span><strong id="timer">00:00</strong></div>
+          <div class="stat-row"><span>State</span><strong class="state" id="stateLabel">SOLVED</strong></div>
+          <div class="rule"></div>
+          <div class="eyebrow muted">MOVE HISTORY</div>
+          <div class="history" id="history"><p>Make a move to begin.</p></div>
+          <button class="text-button" id="undoBtn">↶ Undo last move</button>
+        </aside>
+
+        <section class="cube-stage">
+          <div class="stage-copy"><p class="eyebrow">INTERACTIVE 3D PUZZLE</p><h1>Find your<br><em>flow.</em></h1><p>Turn the cube, build an algorithm,<br>and make every move count.</p></div>
+          <div class="cube-wrap" id="cubeWrap" aria-label="Interactive 3D Rubik's Cube" role="application">
+            <div class="cube" id="cube"></div>
+          </div>
+          <div class="orbit-note"><span>⌘</span> DRAG TO ROTATE</div>
+          <div class="view-controls"><button data-view="home">HOME</button><button data-view="top">TOP</button><button data-view="front">FRONT</button></div>
+        </section>
+
+        <aside class="right-panel panel">
+          <div class="eyebrow">CONTROLS</div>
+          <div class="control-grid" id="moveControls">
+            <button data-move="U"><b>U</b><small>up</small></button><button data-move="U'"><b>U′</b><small>inverse</small></button>
+            <button data-move="R"><b>R</b><small>right</small></button><button data-move="R'"><b>R′</b><small>inverse</small></button>
+            <button data-move="F"><b>F</b><small>front</small></button><button data-move="F'"><b>F′</b><small>inverse</small></button>
+            <button data-move="D"><b>D</b><small>down</small></button><button data-move="D'"><b>D′</b><small>inverse</small></button>
+            <button data-move="L"><b>L</b><small>left</small></button><button data-move="L'"><b>L′</b><small>inverse</small></button>
+            <button data-move="B"><b>B</b><small>back</small></button><button data-move="B'"><b>B′</b><small>inverse</small></button>
+          </div>
+          <div class="rule"></div>
+          <label class="eyebrow muted" for="algorithm">ALGORITHM</label>
+          <div class="algorithm-input"><input id="algorithm" placeholder="e.g. R U R′ U′" autocomplete="off" /><button id="playAlgorithm" aria-label="Play algorithm">▶</button></div>
+          <div class="action-buttons"><button class="primary" id="scrambleBtn">✦&nbsp; Scramble</button><button class="secondary" id="resetBtn">Reset cube</button></div>
+        </aside>
+      </section>
     </main>
+    <dialog id="helpDialog"><button class="dialog-close" id="closeHelp">×</button><p class="eyebrow">KEYBOARD CONTROLS</p><h2>Keep your hands on the cube.</h2><p>Use <b>U R F D L B</b> for clockwise turns. Hold <b>Shift</b> for inverse turns. Press <b>Space</b> to scramble and <b>Z</b> to undo.</p></dialog>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
