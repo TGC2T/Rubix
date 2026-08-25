@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start": "http-server . -p 4173 -c-1",
+    "test:visual": "playwright test"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "playwright": "^1.62.1"
+  }
+}
